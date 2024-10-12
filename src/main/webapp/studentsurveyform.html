@@ -1,0 +1,307 @@
+<!--
+This is a student survey form designed to collect user feedback on campus experience. 
+It includes validation for required fields like name,city,address,survey date, telephone number.
+Added validation for telephone number and raffle input requiring at least 10 comma-separated numbers between 1 and 100.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Survey Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+        form {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .form-group .checkbox-group,
+        .form-group .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .form-group .checkbox-group label,
+        .form-group .radio-group label {
+            margin-right: 15px;
+        }
+        .form-actions {
+            text-align: center;
+        }
+        .form-actions button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #007bff;
+            cursor: pointer;
+        }
+        .form-actions button.cancel {
+            background-color: #6c757d;
+        }
+        .top-left-image,
+        .bottom-right-image {
+            position: fixed;
+            width: 400px;
+            height: auto;
+            z-index: 0;
+            border-radius: 10px;
+        }
+        .top-left-image {
+            top: 200px;
+            left: 20px;
+        }
+        .bottom-right-image {
+            bottom: 200px;
+            right: 20px;
+        }
+        .error {
+            border: 2px solid red;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.875em;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://gmufourthestate.com/files/2024/04/GM.jpg" alt="Top Left Image" class="top-left-image">
+    <img src="https://foodondemand.com/wp-content/uploads/2023/01/starship.jpg" alt="Bottom Right Image" class="bottom-right-image">
+
+    <div class="container">
+        <form id="survey-form">
+            <h1>Student Survey Form</h1>
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+            <div class="form-group">
+                <label for="street-address">Street Address</label>
+                <input type="text" id="street-address" name="street-address" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" required>
+            </div>
+            <div class="form-group">
+                <label for="zip">Zip Code</label>
+                <input type="text" id="zip" name="zip" required>
+            </div>
+            <div class="form-group">
+                <label for="telephone">Telephone Number</label>
+                <input type="tel" id="telephone" name="telephone" required>
+                <div id="telephone-error" class="error-message"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="survey-date">Date of Survey</label>
+                <input type="date" id="survey-date" name="survey-date" required>
+            </div>
+
+            <div class="form-group">
+                <label>What did you like most about the campus?</label>
+                <fieldset class="checkbox-group">
+                    <label><input type="checkbox" name="likes" value="students"> Students</label>
+                    <label><input type="checkbox" name="likes" value="location"> Location</label>
+                    <label><input type="checkbox" name="likes" value="campus"> Campus</label>
+                    <label><input type="checkbox" name="likes" value="atmosphere"> Atmosphere</label>
+                    <label><input type="checkbox" name="likes" value="dorm-rooms"> Dorm Rooms</label>
+                    <label><input type="checkbox" name="likes" value="sports"> Sports</label>
+                </fieldset>
+            </div>
+
+            <div class="form-group">
+                <label>How did you become interested in the university?</label>
+                <fieldset class="radio-group">
+                    <label><input type="radio" name="interest" value="friends" required> Friends</label>
+                    <label><input type="radio" name="interest" value="television"> Television</label>
+                    <label><input type="radio" name="interest" value="internet"> Internet</label>
+                    <label><input type="radio" name="interest" value="other"> Other</label>
+                </fieldset>
+            </div>
+
+            <div class="form-group">
+                <label for="recommendation">Likelihood of recommending this school</label>
+                <select id="recommendation" name="recommendation" required>
+                    <option value="">Select...</option>
+                    <option value="very-likely">Very Likely</option>
+                    <option value="likely">Likely</option>
+                    <option value="unlikely">Unlikely</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="raffle">Raffle (Enter at least ten comma-separated numbers ranging from 1 through 100)</label>
+                <input type="text" id="raffle" name="raffle" required>
+                <div id="raffle-error" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Additional Comments</label>
+                <textarea id="comments" name="comments"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Submit</button>
+                <button type="button" class="cancel" id="cancel-button">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('survey-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            // Remove previous error styles and messages
+            document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(function(input) {
+                input.classList.remove('error');
+            });
+            document.querySelectorAll('.error-message').forEach(function(message) {
+                message.textContent = '';
+            });
+
+            // Check required fields
+            document.querySelectorAll('.form-group input, .form-group select').forEach(function(input) {
+                if (!input.value.trim()) {
+                    input.classList.add('error');
+                    isValid = false;
+                }
+            });
+
+            // Validate telephone number
+            const telephoneInput = document.getElementById('telephone');
+            const phoneRegex = /^\d{10}$/; // Exactly 10 digits
+            const telephoneError = document.getElementById('telephone-error');
+
+            if (!phoneRegex.test(telephoneInput.value.trim())) {
+                telephoneInput.classList.add('error');
+                telephoneError.textContent = 'Please enter a valid 10-digit number.';
+                isValid = false;
+            }
+
+            // Validate raffle input
+            const raffleInput = document.getElementById('raffle');
+            const raffleNumbers = raffleInput.value.split(',').map(num => num.trim());
+            const raffleError = document.getElementById('raffle-error');
+
+            if (raffleNumbers.length < 10) {
+                isValid = false;
+                raffleInput.classList.add('error');
+                raffleError.textContent = 'Please enter at least 10 comma seperated numbers.';
+            } else {
+                for (let num of raffleNumbers) {
+                    if (!/^\d+$/.test(num) || num < 1 || num > 100) {
+                        isValid = false;
+                        raffleInput.classList.add('error');
+                        raffleError.textContent = 'Numbers must be between 1 and 100.';
+                        break;
+                    }
+                }
+            }
+
+            if (isValid) {
+                alert('Form submitted successfully!');
+                // Reset the form
+                document.getElementById('survey-form').reset();
+                // Clear error messages and styles after reset
+                document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(function(input) {
+                    input.classList.remove('error');
+                });
+                document.querySelectorAll('.error-message').forEach(function(message) {
+                    message.textContent = '';
+                });
+                telephoneError.textContent = '';
+                raffleError.textContent = '';
+            } else {
+                alert('Please fill in all required fields correctly.');
+            }
+        });
+
+        document.getElementById('cancel-button').addEventListener('click', function() {
+            if (confirm('Are you sure you want to reset the form?')) {
+                document.getElementById('survey-form').reset();
+                // Clear error messages and styles on cancel
+                document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(function(input) {
+                    input.classList.remove('error');
+                });
+                document.querySelectorAll('.error-message').forEach(function(message) {
+                    message.textContent = '';
+                });
+                const telephoneInput = document.getElementById('telephone');
+                telephoneInput.classList.remove('error');
+                document.getElementById('telephone-error').textContent = '';
+                document.getElementById('raffle-error').textContent = '';
+            }
+        });
+    </script>
+
+</body>
+</html>
