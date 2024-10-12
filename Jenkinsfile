@@ -6,6 +6,10 @@ pipeline{
   stages{
     stage('Build') {
       steps {
+	sh 'echo "Current directory contents:"'
+        sh 'ls -la'
+        sh 'echo "Git commit hash:"'
+        sh 'git rev-parse HEAD'
 	sh 'rm -rf *.var'
         sh 'jar -cvf studentsurveyform.war -C "src/main/webapp" .'     
         sh 'docker build -t dineshindupuri/studentsurveyform:latest .'
