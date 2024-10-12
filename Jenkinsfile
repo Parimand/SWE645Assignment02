@@ -6,46 +6,43 @@ pipeline {
     stages {
         stage('Build WAR') {
             steps {
-                // Use Maven to build the WAR file
-                sh 'mvn clean package'
-            }
-        }
-
-        stage('Build Docker Image') {
-            steps {
-                // Ensure the WAR file is copied from target folder into Docker build context
+                // Clean up any existing WAR files if necessary
+                sh 'rm -rf target/studentsurveyform.war'
+                
+                // Create the WAR file from the webapp directory
+                sh 'jar -cvf target/studentsurveyform.war -C "src/main/webapp" .'
+                
+                // Build the Docker image using the Dockerfile
                 sh 'docker build -t dineshindupuri/studentsurveyform:latest .'
             }
         }
 
         stage('Docker Login') {
             steps {
-                // Use Docker credentials stored in Jenkins for login
+                // Log in to Docker Hub
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
 
         stage('Push Image to Docker Hub') {
             steps {
-                // Push Docker image to Docker Hub
+                // Push the built image to Docker Hub
                 sh 'docker push dineshindupuri/studentsurveyform:latest'
             }
         }
 
         stage('Deploy to Kubernetes') {
             steps {
-                // Deploy the latest Docker image to Kubernetes
-                sh '''
-                    kubectl set image deployment/swe645assignment02-deployment container-0=dineshindupuri/studentsurveyform:latest -n default
-                    kubectl rollout restart deploy swe645assignment02-deployment -n default
-                '''
+                // Update the Kubernetes deployment to use the new image
+                sh 'kubectl set image deployment/swe645assignment02-deployment container-0=dineshindupuri/studentsurveyform:latest -n default'
+                sh 'kubectl rollout restart deployment/swe645assignment02-deployment -n default'
             }
         }
     }
 
     post {
         always {
-            // Always log out from Docker Hub to avoid leaking credentials
+            // Ensure Docker logout happens after each run
             sh 'docker logout'
         }
     }
