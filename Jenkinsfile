@@ -40,5 +40,3 @@ pipeline{
 		}
 	}    
 }
-
-this is my jenkins file
