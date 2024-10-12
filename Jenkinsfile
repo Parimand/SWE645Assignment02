@@ -7,7 +7,7 @@ pipeline{
     stage('Build') {
       steps {
         sh 'jar -cvf studentsurveyform.war -C "src/main/webapp" .'     
-        sh 'docker build --no-cache --tag studentsurveyform:latest .'
+        sh 'docker build --no-cache --tag dineshindupuri/studentsurveyform:latest .'
       }
     }
     stage('Login') {
