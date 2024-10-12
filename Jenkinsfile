@@ -13,7 +13,7 @@ pipeline {
                 sh 'jar -cvf target/studentsurveyform.war -C "src/main/webapp" .'
                 
                 // Build the Docker image using the Dockerfile
-                sh 'docker build -t dineshindupuri/studentsurveyform:latest .'
+                sh 'docker build --no-cache -t dineshindupuri/studentsurveyform:latest .'
             }
         }
 
