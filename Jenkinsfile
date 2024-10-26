@@ -1,3 +1,6 @@
+// This Jenkins pipeline automates the build, push, and deployment process for a web application.
+// It includes stages to build a WAR file, create a Docker image, push the image to Docker Hub
+// update the Kubernetes deployment to use the latest image. Docker login/logout is handled securely using Jenkins credentials.
 pipeline {
     agent any
     environment {
