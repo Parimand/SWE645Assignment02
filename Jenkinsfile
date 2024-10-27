@@ -1,9 +1,9 @@
 //Group member details
-/* Pavan Sai Gopinadh Reddy Arimanda G01478272
-Venkat Dinesh Indupuri  G01464737
-Nemali Sudheer Reddy   G01410008
-Datta Naga Vamseedhar Gunnampalli  G01478792
-*/
+// Pavan Sai Gopinadh Reddy Arimanda G01478272
+//Venkat Dinesh Indupuri  G01464737
+//Nemali Sudheer Reddy   G01410008
+//Datta Naga Vamseedhar Gunnampalli  G01478792
+
 
 // This Jenkins pipeline automates the build, push, and deployment process for a web application.
 // It includes stages to build a WAR file, create a Docker image, push the image to Docker Hub
