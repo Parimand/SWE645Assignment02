@@ -1,15 +1,3 @@
-#Pavan Sai Gopinadh Reddy Arimanda G01478272
-#Venkat Dinesh Indupuri  G01464737
-#Nemali Sudheer Reddy    G01410008
-#Datta Naga Vamseedhar Gunnampalli G01478792
-
-# This YAML file defines a Kubernetes Deployment for the `swe645groupassignment02` application.
-# It specifies the desired state of the application, including:
-# - 3 replicas of the application to ensure high availability.
-# - A rolling update strategy for seamless deployments.
-# - Container configuration, including the Docker image to use and the ports to expose.
-# The deployment also includes annotations, labels, and various configurations for resource management and security.
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
