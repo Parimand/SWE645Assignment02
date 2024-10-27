@@ -1,7 +1,7 @@
-#Pavan Sai Gopinadh Reddy Arimanda G01478272
-#Venkat Dinesh Indupuri  G01464737
-#Nemali Sudheer Reddy    G01410008
-#Datta Naga Vamseedhar Gunnampalli G01478792
+# Pavan Sai Gopinadh Reddy Arimanda G01478272
+# Venkat Dinesh Indupuri  G01464737
+# Nemali Sudheer Reddy    G01410008
+# Datta Naga Vamseedhar Gunnampalli G01478792
 
 # This YAML file defines a Kubernetes Deployment for the `swe645groupassignment02` application.
 # It specifies the desired state of the application, including:

@@ -1,7 +1,7 @@
-#Pavan Sai Gopinadh Reddy Arimanda G01478272
-#Venkat Dinesh Indupuri  G01464737
-#Nemali Sudheer Reddy    G01410008
-#Datta Naga Vamseedhar Gunnampalli G01478792
+# Pavan Sai Gopinadh Reddy Arimanda G01478272
+# Venkat Dinesh Indupuri  G01464737
+# Nemali Sudheer Reddy    G01410008
+# Datta Naga Vamseedhar Gunnampalli G01478792
 
 # This Dockerfile sets up a Tomcat server with a deployed web application.
 # It uses the official Tomcat image, copies the application WAR file,
