@@ -45,8 +45,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 // Update the Kubernetes deployment to use the new image
-                sh 'kubectl set image deployment/assignment02 container-0=dineshindupuri/studentsurveyform:latest -n default'
-                sh 'kubectl rollout restart deployment/assignment02 -n default'
+                sh 'kubectl set image deployment/swe645groupassignment02-deployment container-0=dineshindupuri/studentsurveyform:latest -n default'
+                sh 'kubectl rollout restart deployment/swe645groupassignment02-deployment -n default'
             }
         }
     }
