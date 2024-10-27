@@ -1,3 +1,5 @@
+# This file configures access to the Kubernetes cluster for the SWE645 Group Assignment.
+# It includes settings for the cluster endpoint, user authentication, and context selection.
 apiVersion: v1
 kind: Config
 clusters:
