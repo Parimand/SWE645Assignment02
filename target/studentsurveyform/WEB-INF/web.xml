@@ -1,3 +1,7 @@
+
+
+<!-- This is the deployment descriptor for the Student Survey web application -->
+<!-- It configures basic settings like display name and the default welcome page -->
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app
     version="4.0"
